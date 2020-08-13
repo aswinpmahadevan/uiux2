@@ -40,6 +40,8 @@ dependencies:
   number_slide_animation: ^0.1.1
   animated_splash: ^1.0.0
   slimy_card: ^1.0.4
+  audio_widget: ^1.0.0
+
 
 dev_dependencies:
   flutter_test:

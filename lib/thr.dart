@@ -1,3 +1,4 @@
+import 'package:audio_widget/audio_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:loading_animations/loading_animations.dart';
@@ -16,6 +17,9 @@ class thr extends StatefulWidget {
   @override
   _thrState createState() => _thrState();
 }
+
+bool _play = false;
+// String _currentPosition = "";
 
 final List<Feature> features = [
   Feature(
@@ -262,6 +266,35 @@ class _thrState extends State<thr> {
               labelY: ['20%', '40%', '60%', '80%', '100%'],
               showDescription: true,
               graphColor: Colors.black,
+            ),
+            Audio.assets(
+              path: "images/test.mp3",
+              play: _play,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Text("DHERA DHERA BGM"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: RaisedButton(
+                      shape: CircleBorder(),
+                      padding: EdgeInsets.all(14),
+                      color: Theme.of(context).primaryColor,
+                      child: Icon(
+                        _play ? Icons.pause : Icons.play_arrow,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _play = !_play;
+                        });
+                      },
+                    ),
+                  ),
+                  // Text(_currentPosition),
+                ],
+              ),
             ),
             DottedLine(
               direction: Axis.horizontal,
